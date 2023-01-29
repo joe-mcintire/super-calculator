@@ -1,12 +1,35 @@
 import React from "react";
 import logo from "./logo.svg";
 import styles from "./App.module.css";
-import Calculators from "./pages/Calculators/Calculators";
+import Calculators from "./pageElements/Calculators/Calculators";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import BasicPageWrapper from "./pageElements/BasicPageWrapper/BasicPageWrapper";
+import CalculatorPageWrapper from "./pageElements/CalculatorPageWrapper/CalculatorPageWrapper";
 
 function App() {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <CalculatorPageWrapper />,
+      handle: { title: "Calculators" },
+      children: [{ index: true, element: <Calculators /> }],
+    },
+    {
+      path: "/*",
+      element: <BasicPageWrapper />,
+      children: [
+        {
+          path: "about",
+          element: <div>about</div>,
+          handle: { title: "About" },
+        },
+      ],
+    },
+  ]);
+
   return (
     <div className={styles.app}>
-      <Calculators />
+      <RouterProvider router={router} />
     </div>
   );
 }

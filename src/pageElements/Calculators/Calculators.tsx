@@ -1,19 +1,17 @@
 import React from "react";
 import Calculator from "../../components/Calculator/Calculator";
-import { CalculatorType } from "../../constants/CalculatorTypes";
+import { CalculatorType } from "../../constants/enums";
+import styles from "./Calculators.module.css";
 
 const Calculators = () => {
   const calculators = [CalculatorType.KmToMile, CalculatorType.MileToKm];
 
   return (
     <div>
-      <h4>Calculators</h4>
-      <div>
-        <div>
-          {calculators.map((c) => (
-            <Calculator calculatorType={c} />
-          ))}
-        </div>
+      <div className={styles.cards}>
+        {calculators.map((c) => (
+          <Calculator calculatorType={c} />
+        ))}
       </div>
     </div>
   );

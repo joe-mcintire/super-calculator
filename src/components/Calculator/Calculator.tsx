@@ -1,24 +1,27 @@
 import React from "react";
-import {
-  CalculatorType,
-  CALCULATOR_DETAILS_COMPONENTS,
-} from "../../constants/CalculatorTypes";
-import { CalculatorProps } from "../../types/props";
+import { CALCULATOR_DEFINITIONS } from "../../calculatorDefinitions/definitionsMap";
+import { CalculatorType } from "../../constants/enums";
 import Card from "../Card/Card";
 
-type Props = CalculatorProps;
+export type Props = {
+  calculatorType?: CalculatorType;
+  data?: any;
+  className?: string;
+};
 
-const Calculator = ({ calculatorType }: Props) => {
-  const CalculatorDetails =
+const Calculator = ({ calculatorType, className }: Props) => {
+  const calculatorDefinition =
     calculatorType !== undefined
-      ? CALCULATOR_DETAILS_COMPONENTS[calculatorType]
+      ? CALCULATOR_DEFINITIONS[calculatorType]
       : undefined;
+
+  const CalculatorDetails = calculatorDefinition?.detailsComponent;
 
   if (!CalculatorDetails)
     return <div>Sorry! This calculator is not available.</div>;
 
   return (
-    <Card>
+    <Card className={className} title={calculatorDefinition?.label}>
       <div>
         <CalculatorDetails />
       </div>
