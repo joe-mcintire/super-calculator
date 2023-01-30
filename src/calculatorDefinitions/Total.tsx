@@ -12,7 +12,7 @@ const convertKmToMile = (km: string): string => {
   return (numberValue * 0.6213712).toFixed(2);
 };
 
-const SumDetails = ({ data }: Omit<CalculatorProps, "calculatorType">) => {
+const TotalDetails = ({ data }: Omit<CalculatorProps, "calculatorType">) => {
   const [newValue, setNewValue] = useState("0");
   const [total, setTotal] = useState(0);
 
@@ -60,11 +60,11 @@ const SumDetails = ({ data }: Omit<CalculatorProps, "calculatorType">) => {
   );
 };
 
-export const Sum = {
-  detailsComponent: SumDetails,
-  label: "Sum",
+export const Total = {
+  detailsComponent: TotalDetails,
+  label: "Total",
   primaryColor: "#187900",
   secondaryColor: "#26bd00",
 };
 
-export default Sum;
+export default Total;

@@ -7,4 +7,9 @@
   font-weight: 600;
   background-color: #302d27;
   color: white;
+  border: 1px solid black;
+  padding-top: 2px;
+  padding-bottom: 0;
+  padding-left: 7px;
+  padding-right: 7px;
 }

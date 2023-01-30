@@ -1,12 +1,12 @@
 import { Component, ReactComponentElement, ReactElement } from "react";
 import KmToMile from "./KmToMile";
 import MileToKm from "./MileToKm";
-import Sum from "./Sum";
+import Total from "./Total";
 
 export enum CalculatorType {
     KmToMile,
     MileToKm,
-    Sum
+    Total
   }
 
 export type CalculatorDefinition = {
@@ -19,5 +19,5 @@ export type CalculatorDefinition = {
 export const CALCULATOR_DEFINITIONS: { [key: number]: CalculatorDefinition } = {
   [CalculatorType.KmToMile]: KmToMile,
   [CalculatorType.MileToKm]: MileToKm,
-  [CalculatorType.Sum]: Sum
+  [CalculatorType.Total]: Total
 };

@@ -4,35 +4,32 @@
   bottom: 0;
   left: 0;
   width: 100vw;
-  height: 60px;
+  height: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .control {
-  height: 60px;
+  height: 50px;
   background-color: white;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   width: 300px;
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
+  border-top-left-radius: 9px;
+  border-top-right-radius: 9px;
 }
 
 .controlButton {
-  width: calc(100% - 20px);
-  color: white;
-  background-color: #222222;
+  width: calc(100% - 10px);
+  color: #2e2d28;
+  background-color: white;
+  border: 1px solid #aaa781;
   font-size: 18px;
   padding: 9px;
-  font-weight: 700;
-}
-
-.controlButton:hover {
-  background-color: #272727;
+  font-weight: 600;
 }
 
 .open {
