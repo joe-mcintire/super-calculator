@@ -4,6 +4,8 @@ import {
   CalculatorType,
   CALCULATOR_DEFINITIONS,
 } from "../../calculatorDefinitions/definitionsMap";
+import Button from "../Button/Button";
+import CalculatorButton from "../CalculatorButton/CalculatorButton";
 import Card from "../Card/Card";
 import Input from "../Input/Input";
 import styles from "./Calculator.module.css";
@@ -44,12 +46,19 @@ const Calculator = ({ calculatorType, className }: Props) => {
       >
         <Card className={classNames(className, styles.card)}>
           <>
-            <div className={styles.title}>
-              <Input
-                value={title}
-                className={styles.titleInput}
-                onChange={setTitle}
-              />
+            <div className={styles.header}>
+              <div className={styles.title}>
+                <Input
+                  value={title}
+                  className={styles.titleInput}
+                  onChange={setTitle}
+                />
+              </div>
+              <div className={styles.controls}>
+                <CalculatorButton className={styles.headerButton}>Reset</CalculatorButton>
+                <CalculatorButton className={styles.headerButton}>Remove</CalculatorButton>
+                <CalculatorButton className={styles.headerButton}>Lock</CalculatorButton>
+              </div>
             </div>
             <div className={styles.content}>
               <CalculatorDetails />

@@ -25,7 +25,7 @@ const TotalDetails = ({ data }: Omit<CalculatorProps, "calculatorType">) => {
             onChange={(newValue) => {
               setNewValue(newValue);
             }}
-            className="w-2"
+            className="w-3"
           />
           <CalculatorButton
             onClick={() =>

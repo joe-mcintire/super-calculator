@@ -7,6 +7,7 @@
 }
 
 .title {
+  flex-grow: 1;
 }
 
 .titleInput {
@@ -34,9 +35,25 @@
   border: 2px solid white;
   border-radius: 7px;
   box-shadow: 0 0 3px 0px rgba(255, 224, 166, 0.3);
+  position: relative;
 }
 
 .innerRing {
   border: 4px solid;
   border-radius: 5px;
+}
+
+.header {
+  display: flex;
+  gap: 10px;
+}
+
+.headerButton {
+  font-size: 12px;
+  height: 20px;
+}
+
+.controls {
+  display: flex;
+  gap: 3px;
 }

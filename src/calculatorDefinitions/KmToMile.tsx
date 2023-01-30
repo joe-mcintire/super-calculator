@@ -24,7 +24,7 @@ const KmToMileDetails = ({ data }: Omit<CalculatorProps, "calculatorType">) => {
               setKmValue(newValue);
               setMileValue(convertKmToMile(newValue));
             }}
-            className="w-2"
+            className="w-3"
           />
         </div>
         <div>KM is {mileValue} miles</div>
