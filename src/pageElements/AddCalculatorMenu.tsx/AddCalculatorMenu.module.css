@@ -1,12 +1,47 @@
 .wrapper {
-  background-color: black;
   color: white;
+  background-color: #888888;
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100vw;
-  height: 40px;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+}
+
+.control {
+  height: 60px;
+  background-color: black;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
+}
+
+.controlButton {
+  width: calc(100% - 20px);
+  color: white;
+  background-color: #222222;
+  font-size: 18px;
+  padding: 9px;
+  font-weight: 700;
+}
+
+.controlButton:hover {
+    background-color: #272727;
+}
+
+.open {
+}
+
+.wrapper.open {
+  height: 60vh;
+}
+
+.content {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
 }

@@ -1,18 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { Outlet, useMatch, useMatches } from "react-router-dom";
+import { useCalculatorGlobalState } from "../../globalState/CalculatorGlobalState";
 import usePageTitle from "../../hooks/usePageTitle";
 import AddCalculatorMenu from "../AddCalculatorMenu.tsx/AddCalculatorMenu";
 import styles from "./CalculatorPageWrapper.module.css";
 
 const CalculatorPageWrapper = () => {
   const pageTitle = usePageTitle();
+  const [addMenuOpen, setAddMenuOpen] = useState(false);
+  const { addCalculator } = useCalculatorGlobalState();
 
   return (
     <div className={styles.wrapper}>
       <div>
         <Outlet />
       </div>
-      <AddCalculatorMenu />
+      <AddCalculatorMenu
+        open={addMenuOpen}
+        onOpenChange={setAddMenuOpen}
+        onCalculatorSelect={addCalculator}
+      />
     </div>
   );
 };

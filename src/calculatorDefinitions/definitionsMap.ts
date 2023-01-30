@@ -1,7 +1,11 @@
 import { Component, ReactComponentElement, ReactElement } from "react";
-import { CalculatorType } from "../constants/enums";
 import KmToMile from "./KmToMile";
 import MileToKm from "./MileToKm";
+
+export enum CalculatorType {
+    KmToMile,
+    MileToKm,
+  }
 
 export type CalculatorDefinition = {
   detailsComponent?: any;

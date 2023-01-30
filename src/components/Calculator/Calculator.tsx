@@ -1,7 +1,11 @@
+import classNames from "classnames";
 import React from "react";
-import { CALCULATOR_DEFINITIONS } from "../../calculatorDefinitions/definitionsMap";
-import { CalculatorType } from "../../constants/enums";
+import {
+  CalculatorType,
+  CALCULATOR_DEFINITIONS,
+} from "../../calculatorDefinitions/definitionsMap";
 import Card from "../Card/Card";
+import styles from "./Calculator.module.css";
 
 export type Props = {
   calculatorType?: CalculatorType;
@@ -21,7 +25,15 @@ const Calculator = ({ calculatorType, className }: Props) => {
     return <div>Sorry! This calculator is not available.</div>;
 
   return (
-    <Card className={className} title={calculatorDefinition?.label}>
+    <Card
+      className={classNames(className, styles.card)}
+      titleClassName={styles.title}
+      title={calculatorDefinition?.label}
+      style={{
+        backgroundColor: calculatorDefinition?.secondaryColor,
+        borderColor: calculatorDefinition?.primaryColor,
+      }}
+    >
       <div>
         <CalculatorDetails />
       </div>
