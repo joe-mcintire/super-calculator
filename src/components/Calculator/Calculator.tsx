@@ -4,6 +4,7 @@ import {
   CalculatorType,
   CALCULATOR_DEFINITIONS,
 } from "../../calculatorDefinitions/definitionsMap";
+import { useCalculatorGlobalState } from "../../globalState/CalculatorGlobalState";
 import Button from "../Button/Button";
 import CalculatorButton from "../CalculatorButton/CalculatorButton";
 import Card from "../Card/Card";
@@ -14,9 +15,14 @@ export type Props = {
   calculatorType?: CalculatorType;
   data?: any;
   className?: string;
+  index?: number;
 };
 
-const Calculator = ({ calculatorType, className }: Props) => {
+const Calculator = ({ calculatorType, className, index }: Props) => {
+  const { removeCalculator } = useCalculatorGlobalState();
+  const [resetCount, setResetCount] = useState(0);
+  const [locked, setLocked] = useState(false);
+
   const calculatorDefinition =
     calculatorType !== undefined
       ? CALCULATOR_DEFINITIONS[calculatorType]
@@ -31,7 +37,11 @@ const Calculator = ({ calculatorType, className }: Props) => {
 
   return (
     <div
-      className={styles.ring}
+      className={classNames(
+        styles.ring,
+        { [styles.locked]: locked },
+        { [styles.unlocked]: !locked }
+      )}
       style={{
         borderColor: calculatorDefinition?.secondaryColor,
         backgroundColor: calculatorDefinition?.secondaryColor,
@@ -52,16 +62,38 @@ const Calculator = ({ calculatorType, className }: Props) => {
                   value={title}
                   className={styles.titleInput}
                   onChange={setTitle}
+                  viewOnly={locked}
                 />
               </div>
               <div className={styles.controls}>
-                <CalculatorButton className={styles.headerButton}>Reset</CalculatorButton>
-                <CalculatorButton className={styles.headerButton}>Remove</CalculatorButton>
-                <CalculatorButton className={styles.headerButton}>Lock</CalculatorButton>
+                {!locked && (
+                  <CalculatorButton
+                    className={styles.headerButton}
+                    onClick={() => setResetCount((original) => original + 1)}
+                  >
+                    Reset
+                  </CalculatorButton>
+                )}
+                {!locked && (
+                  <CalculatorButton
+                    className={styles.headerButton}
+                    onClick={() => {
+                      if (index !== undefined) removeCalculator(index);
+                    }}
+                  >
+                    Remove
+                  </CalculatorButton>
+                )}
+                <CalculatorButton
+                  className={styles.headerButton}
+                  onClick={() => setLocked((original) => !original)}
+                >
+                  {!locked ? "Lock" : "Unlock"}
+                </CalculatorButton>
               </div>
             </div>
             <div className={styles.content}>
-              <CalculatorDetails />
+              <CalculatorDetails key={`calculator-details-${resetCount}`} />
             </div>
           </>
         </Card>

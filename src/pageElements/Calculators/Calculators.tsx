@@ -10,9 +10,9 @@ const Calculators = () => {
     <div>
       {calculators?.length ? (
         <div className={styles.cards}>
-          {calculators?.map((c) => (
+          {calculators?.map((c, i) => (
             <div>
-              <Calculator calculatorType={c} />
+              <Calculator calculatorType={c} index={i} />
             </div>
           ))}
         </div>

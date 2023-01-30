@@ -17,6 +17,7 @@ type UseCalculatorGlobalStateResult = Omit<
   "setCalculators"
 > & {
   addCalculator: (calculatorType?: CalculatorType) => void;
+  removeCalculator: (calculatorIndex: number) => void;
 };
 
 const DEFAULT_STATE: CalculatorGlobalState = {
@@ -56,5 +57,11 @@ export const useCalculatorGlobalState = (): UseCalculatorGlobalStateResult => {
       context.setCalculators([...(context.calculators ?? []), calculatorType]);
   };
 
-  return { calculators: context.calculators, addCalculator };
+  const removeCalculator = (calculatorIndex: number) => {
+    context.setCalculators(
+      context.calculators?.filter((c, i) => i !== calculatorIndex)
+    );
+  };
+
+  return { calculators: context.calculators, addCalculator, removeCalculator };
 };

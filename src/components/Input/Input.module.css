@@ -4,4 +4,9 @@
   border-radius: 5px;
   padding: 3px;
   font-size: 16px;
+  font-family: helvetica, sans-serif;
+}
+
+.viewOnly {
+  line-height: 20px;
 }
