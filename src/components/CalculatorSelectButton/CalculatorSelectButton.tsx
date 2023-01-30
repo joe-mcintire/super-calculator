@@ -23,10 +23,13 @@ const CalculatorSelectButton = ({ calculatorType, onClick }: Props) => {
       onClick={onClick}
       style={{
         backgroundColor: calculatorDefinition?.secondaryColor,
-        borderColor: calculatorDefinition?.primaryColor,
+        borderColor: calculatorDefinition?.secondaryColor,
       }}
     >
-      {calculatorDefinition?.label}
+      <div className={styles.ring} style={{
+        backgroundColor: calculatorDefinition?.primaryColor,
+        borderColor: calculatorDefinition?.primaryColor,
+      }}><div className={styles.content}>{calculatorDefinition?.label}</div></div>
     </Button>
   );
 };

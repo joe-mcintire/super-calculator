@@ -11,7 +11,9 @@ const Calculators = () => {
       {calculators?.length ? (
         <div className={styles.cards}>
           {calculators?.map((c) => (
-            <Calculator calculatorType={c} />
+            <div>
+              <Calculator calculatorType={c} />
+            </div>
           ))}
         </div>
       ) : (

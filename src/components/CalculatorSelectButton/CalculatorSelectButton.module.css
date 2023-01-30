@@ -1,7 +1,23 @@
 .wrapperButton {
   border: 2px solid;
+  padding: 0;
+  box-sizing: content-box;
+  border-radius: 6px;
 }
 
 .wrapperButton:hover {
-  filter: brightness(110%);
+  filter: brightness(150%);
+}
+
+.ring {
+  border: 3px solid;
+  border-radius: 5px;
+}
+
+.content {
+  background-color: #1d1b17;
+  border-radius: 4px;
+  padding: 3px;
+  color: white;
+  text-transform: uppercase;
 }

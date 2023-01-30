@@ -25,19 +25,31 @@ const Calculator = ({ calculatorType, className }: Props) => {
     return <div>Sorry! This calculator is not available.</div>;
 
   return (
-    <Card
-      className={classNames(className, styles.card)}
-      titleClassName={styles.title}
-      title={calculatorDefinition?.label}
+    <div
+      className={styles.ring}
       style={{
+        borderColor: calculatorDefinition?.secondaryColor,
         backgroundColor: calculatorDefinition?.secondaryColor,
-        borderColor: calculatorDefinition?.primaryColor,
       }}
     >
-      <div>
-        <CalculatorDetails />
+      <div
+        className={styles.innerRing}
+        style={{
+          borderColor: calculatorDefinition?.primaryColor,
+          backgroundColor: calculatorDefinition?.primaryColor,
+        }}
+      >
+        <Card
+          className={classNames(className, styles.card)}
+          titleClassName={styles.title}
+          title={calculatorDefinition?.label}
+        >
+          <div className={styles.content}>
+            <CalculatorDetails />
+          </div>
+        </Card>
       </div>
-    </Card>
+    </div>
   );
 };
 

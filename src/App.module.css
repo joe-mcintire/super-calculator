@@ -1,5 +1,5 @@
 .app {
-  background-color: #dddddd;
+  background: linear-gradient(to bottom right, #ffedc4, #464236);
   height: 100vh;
   width: 100vw;
   padding: 20px;

@@ -1,0 +1,27 @@
+.flex {
+  display: flex;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.gap-1 {
+  gap: 2px;
+}
+
+.gap-2 {
+  gap: 4px;
+}
+
+.w-1 {
+  width: 30px;
+}
+
+.w-2 {
+  width: 40px;
+}

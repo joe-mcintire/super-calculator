@@ -2,7 +2,7 @@ import classNames from "classnames";
 import React, { CSSProperties, ReactElement } from "react";
 import styles from "./Button.module.css";
 
-type Props = {
+export type Props = {
   onClick?: () => void;
   children?: ReactElement | string;
   className?: string;
