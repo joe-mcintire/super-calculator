@@ -1,10 +1,11 @@
 import classNames from "classnames";
-import React from "react";
+import React, { useState } from "react";
 import {
   CalculatorType,
   CALCULATOR_DEFINITIONS,
 } from "../../calculatorDefinitions/definitionsMap";
 import Card from "../Card/Card";
+import Input from "../Input/Input";
 import styles from "./Calculator.module.css";
 
 export type Props = {
@@ -18,6 +19,8 @@ const Calculator = ({ calculatorType, className }: Props) => {
     calculatorType !== undefined
       ? CALCULATOR_DEFINITIONS[calculatorType]
       : undefined;
+
+  const [title, setTitle] = useState(calculatorDefinition?.label);
 
   const CalculatorDetails = calculatorDefinition?.detailsComponent;
 
@@ -39,14 +42,19 @@ const Calculator = ({ calculatorType, className }: Props) => {
           backgroundColor: calculatorDefinition?.primaryColor,
         }}
       >
-        <Card
-          className={classNames(className, styles.card)}
-          titleClassName={styles.title}
-          title={calculatorDefinition?.label}
-        >
-          <div className={styles.content}>
-            <CalculatorDetails />
-          </div>
+        <Card className={classNames(className, styles.card)}>
+          <>
+            <div className={styles.title}>
+              <Input
+                value={title}
+                className={styles.titleInput}
+                onChange={setTitle}
+              />
+            </div>
+            <div className={styles.content}>
+              <CalculatorDetails />
+            </div>
+          </>
         </Card>
       </div>
     </div>

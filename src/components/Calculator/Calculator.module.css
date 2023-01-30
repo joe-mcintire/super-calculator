@@ -7,8 +7,23 @@
 }
 
 .title {
+}
+
+.titleInput {
   font-size: 10pt;
   text-transform: uppercase;
+  color: white;
+  border: none;
+  padding: 0;
+  border-radius: 0;
+  background-color: transparent;
+  width: 100%;
+}
+
+.titleInput:hover,
+.titleInput:focus {
+  border-bottom: 1px solid white;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .content {
