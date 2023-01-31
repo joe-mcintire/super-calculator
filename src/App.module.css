@@ -1,5 +1,6 @@
 .app {
-  background: linear-gradient(to bottom right, #ffedc4, #464236);
+  /* background: linear-gradient(to bottom right, #ffedc4, #464236); */
+  background-color: #272522;
   height: 100vh;
   width: 100vw;
   padding: 20px;
