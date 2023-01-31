@@ -5,7 +5,6 @@ import {
   CALCULATOR_DEFINITIONS,
 } from "../../calculatorDefinitions/definitionsMap";
 import { useCalculatorGlobalState } from "../../globalState/CalculatorGlobalState";
-import Button from "../Button/Button";
 import CalculatorButton from "../CalculatorButton/CalculatorButton";
 import Card from "../Card/Card";
 import Input from "../Input/Input";
@@ -15,10 +14,10 @@ export type Props = {
   calculatorType?: CalculatorType;
   data?: any;
   className?: string;
-  index?: number;
+  calculatorId?: string;
 };
 
-const Calculator = ({ calculatorType, className, index }: Props) => {
+const Calculator = ({ calculatorType, className, calculatorId }: Props) => {
   const { removeCalculator } = useCalculatorGlobalState();
   const [resetCount, setResetCount] = useState(0);
   const [locked, setLocked] = useState(false);
@@ -78,7 +77,8 @@ const Calculator = ({ calculatorType, className, index }: Props) => {
                   <CalculatorButton
                     className={styles.headerButton}
                     onClick={() => {
-                      if (index !== undefined) removeCalculator(index);
+                      if (calculatorId !== undefined)
+                        removeCalculator(calculatorId);
                     }}
                   >
                     Remove
@@ -93,7 +93,10 @@ const Calculator = ({ calculatorType, className, index }: Props) => {
               </div>
             </div>
             <div className={styles.content}>
-              <CalculatorDetails key={`calculator-details-${resetCount}`} />
+              <CalculatorDetails
+                key={`calculator-details-${resetCount}`}
+                locked={locked}
+              />
             </div>
           </>
         </Card>

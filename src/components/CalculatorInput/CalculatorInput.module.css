@@ -8,3 +8,10 @@
   display: flex;
   align-items: center;
 }
+
+.viewOnly {
+  border: none;
+  background-color: transparent;
+  min-width: unset;
+  width: unset;
+}

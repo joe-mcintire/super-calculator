@@ -6,10 +6,16 @@ import React, {
   useState,
 } from "react";
 import { CalculatorType } from "../calculatorDefinitions/definitionsMap";
+import {v4 as uuid} from "uuid";
+
+type CalculatorInstance = {
+  calculatorType: CalculatorType;
+  id: string;
+};
 
 type CalculatorGlobalState = {
-  calculators?: CalculatorType[];
-  setCalculators: (newValue?: CalculatorType[]) => void;
+  calculators?: CalculatorInstance[];
+  setCalculators: (newValue?: CalculatorInstance[]) => void;
 };
 
 type UseCalculatorGlobalStateResult = Omit<
@@ -17,7 +23,7 @@ type UseCalculatorGlobalStateResult = Omit<
   "setCalculators"
 > & {
   addCalculator: (calculatorType?: CalculatorType) => void;
-  removeCalculator: (calculatorIndex: number) => void;
+  removeCalculator: (calculatorId: string) => void;
 };
 
 const DEFAULT_STATE: CalculatorGlobalState = {
@@ -54,12 +60,15 @@ export const useCalculatorGlobalState = (): UseCalculatorGlobalStateResult => {
 
   const addCalculator = (calculatorType?: CalculatorType) => {
     if (calculatorType !== undefined)
-      context.setCalculators([...(context.calculators ?? []), calculatorType]);
+      context.setCalculators([
+        ...(context.calculators ?? []),
+        { calculatorType, id: uuid() },
+      ]);
   };
 
-  const removeCalculator = (calculatorIndex: number) => {
+  const removeCalculator = (calculatorId: string) => {
     context.setCalculators(
-      context.calculators?.filter((c, i) => i !== calculatorIndex)
+      context.calculators?.filter(c => c.id !== calculatorId)
     );
   };
 

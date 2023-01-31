@@ -10,9 +10,12 @@ const Calculators = () => {
     <div>
       {calculators?.length ? (
         <div className={styles.cards}>
-          {calculators?.map((c, i) => (
-            <div>
-              <Calculator calculatorType={c} index={i} />
+          {calculators?.map((c) => (
+            <div key={`calculator-${c.id}`}>
+              <Calculator
+                calculatorType={c.calculatorType}
+                calculatorId={c.id}
+              />
             </div>
           ))}
         </div>

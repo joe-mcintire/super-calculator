@@ -1,6 +1,7 @@
+import classNames from "classnames";
 import { useState } from "react";
-import { Props as CalculatorProps } from "../components/Calculator/Calculator";
 import CalculatorInput from "../components/CalculatorInput/CalculatorInput";
+import { CalculatorDetailsProps } from "./definitionsMap";
 
 const convertKmToMile = (km: string): string => {
   const numberValue = Number(km);
@@ -10,7 +11,7 @@ const convertKmToMile = (km: string): string => {
   return (numberValue * 0.6213712).toFixed(2);
 };
 
-const KmToMileDetails = ({ data }: Omit<CalculatorProps, "calculatorType">) => {
+const KmToMileDetails = ({ locked }: CalculatorDetailsProps) => {
   const [kmValue, setKmValue] = useState("0");
   const [mileValue, setMileValue] = useState("0");
 
@@ -24,7 +25,8 @@ const KmToMileDetails = ({ data }: Omit<CalculatorProps, "calculatorType">) => {
               setKmValue(newValue);
               setMileValue(convertKmToMile(newValue));
             }}
-            className="w-3"
+            className={classNames({ "w-3": !locked })}
+            viewOnly={locked}
           />
         </div>
         <div>KM is {mileValue} miles</div>
