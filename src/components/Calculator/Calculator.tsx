@@ -44,6 +44,7 @@ const Calculator = ({ calculatorType, className, calculatorId }: Props) => {
       style={{
         borderColor: calculatorDefinition?.secondaryColor,
         backgroundColor: calculatorDefinition?.secondaryColor,
+        boxShadow: `0 0 8px 2px ${calculatorDefinition?.secondaryColor}`,
       }}
     >
       <div

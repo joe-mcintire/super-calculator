@@ -18,8 +18,8 @@
   justify-content: center;
   flex-shrink: 0;
   width: 300px;
-  border-top-left-radius: 9px;
-  border-top-right-radius: 9px;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
 }
 
 .controlButton {
@@ -30,6 +30,7 @@
   font-size: 18px;
   padding: 9px;
   font-weight: 600;
+  border-radius: 25px;
 }
 
 .open {
@@ -48,8 +49,8 @@
   background-color: white;
   flex-grow: 1;
   align-items: flex-start;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
 }
 
 .test {
