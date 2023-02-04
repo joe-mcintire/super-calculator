@@ -3,11 +3,13 @@ import KmToMile from "./KmToMile";
 import MileToKm from "./MileToKm";
 import Total from "./Total";
 import { Props as CalculatorProps } from "../components/Calculator/Calculator";
+import NowToUsTimes from "./NowToUsTimes";
 
 export enum CalculatorType {
   KmToMile,
   MileToKm,
   Total,
+  NowToUsTimes
 }
 
 export type CalculatorDefinition = {
@@ -25,4 +27,5 @@ export const CALCULATOR_DEFINITIONS: { [key: number]: CalculatorDefinition } = {
   [CalculatorType.KmToMile]: KmToMile,
   [CalculatorType.MileToKm]: MileToKm,
   [CalculatorType.Total]: Total,
+  [CalculatorType.NowToUsTimes]: NowToUsTimes
 };
