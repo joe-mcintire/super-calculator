@@ -5,28 +5,31 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import BasicPageWrapper from "./pageElements/BasicPageWrapper/BasicPageWrapper";
 import CalculatorPageWrapper from "./pageElements/CalculatorPageWrapper/CalculatorPageWrapper";
 import { CalculatorGlobalStateProvider } from "./globalState/CalculatorGlobalState";
-import './global.css'
+import "./global.css";
 
 function App() {
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <CalculatorPageWrapper />,
-      handle: { title: "Calculators" },
-      children: [{ index: true, element: <Calculators /> }],
-    },
-    {
-      path: "/*",
-      element: <BasicPageWrapper />,
-      children: [
-        {
-          path: "about",
-          element: <div>about</div>,
-          handle: { title: "About" },
-        },
-      ],
-    },
-  ]);
+  const router = createBrowserRouter(
+    [
+      {
+        path: "/",
+        element: <CalculatorPageWrapper />,
+        handle: { title: "Calculators" },
+        children: [{ index: true, element: <Calculators /> }],
+      },
+      {
+        path: "/*",
+        element: <BasicPageWrapper />,
+        children: [
+          {
+            path: "about",
+            element: <div>about</div>,
+            handle: { title: "About" },
+          },
+        ],
+      },
+    ],
+    { basename: process.env.PUBLIC_URL }
+  );
 
   return (
     <div className={styles.app}>
