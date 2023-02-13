@@ -5,6 +5,9 @@ on:
     branches: ["main"]
   workflow_dispatch:
 
+permissions:
+  id-token: read
+
 # jobs:
 #   build:
 #     runs-on: ubuntu-latest
