@@ -1,5 +1,5 @@
 import React from "react";
-import { Outlet, useMatch, useMatches } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import usePageTitle from "../../hooks/usePageTitle";
 import styles from "./BasicPageWrapper.module.css";
 
