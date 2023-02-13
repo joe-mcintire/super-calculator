@@ -1,5 +1,4 @@
-import React, { createContext } from "react";
-import logo from "./logo.svg";
+import React from "react";
 import styles from "./App.module.css";
 import Calculators from "./pageElements/Calculators/Calculators";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
