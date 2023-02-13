@@ -45,8 +45,17 @@
   background-color: white;
   flex-grow: 1;
   align-items: flex-start;
+  align-content: flex-start;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
+}
+
+@media (max-width: 900px) {
+  .content {
+    width: 100vw;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    box-sizing: border-box;
+  }
 }
 
 .test {
