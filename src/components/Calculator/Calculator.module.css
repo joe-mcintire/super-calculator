@@ -1,6 +1,5 @@
 .card {
   padding: 6px;
-  /* border-radius: 5px; */
   border-radius: 2px;
   color: white;
   background-color: #1d1b17;
@@ -15,6 +14,7 @@
 
 .title {
   flex-grow: 1;
+  min-width: 200px;
 }
 
 .titleInput {
@@ -54,7 +54,9 @@
 
 .header {
   display: flex;
-  gap: 10px;
+  gap: 3px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
 }
 
 .headerButton {
