@@ -8,30 +8,29 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.control {
-  height: 50px;
-  background-color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  width: 300px;
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
+  transition: height 0.2s;
 }
 
 .controlButton {
-  width: calc(100% - 10px);
+  width: 300px;
+  height: 50px;
   color: #2e2d28;
   background-color: white;
-  border: 1px solid #aaa781;
+  box-shadow: 0 0 8px 2px rgba(255, 235, 199, 1);
   font-size: 18px;
-  padding: 9px;
   font-weight: 600;
-  border-radius: 25px;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  flex-shrink: 0;
+  transition: box-shadow 0.1s;
 }
+
+.controlButton:hover {
+  box-shadow: 0 0 15px 7px rgba(255, 235, 199, 1);
+}
+
 .wrapper.open {
   height: 60vh;
 }

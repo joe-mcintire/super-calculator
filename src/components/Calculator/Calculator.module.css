@@ -15,6 +15,7 @@
 .title {
   flex-grow: 1;
   min-width: 200px;
+  font-weight: 600;
 }
 
 .titleInput {
@@ -22,10 +23,15 @@
   text-transform: uppercase;
   color: white;
   border: none;
-  padding: 0;
   border-radius: 0;
   background-color: transparent;
   width: 100%;
+  font-weight: 600;
+  padding: 0;
+}
+
+input.titleInput {
+  padding: 3px 0 0 0;
 }
 
 .unlocked .titleInput:hover,
@@ -40,7 +46,6 @@
 
 .ring {
   border: 2px solid white;
-  /* border-radius: 7px; */
   border-radius: 2px;
   box-shadow: 0 0 8px 2px rgba(255, 224, 166, 0.3);
   position: relative;
@@ -48,7 +53,6 @@
 
 .innerRing {
   border: 4px solid;
-  /* border-radius: 5px; */
   border-radius: 2px;
 }
 
@@ -57,6 +61,10 @@
   gap: 3px;
   justify-content: flex-end;
   flex-wrap: wrap;
+  padding: 4px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.09);
+  border: 1px solid #ffffff;
 }
 
 .headerButton {

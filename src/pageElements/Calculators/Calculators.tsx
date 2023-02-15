@@ -21,7 +21,7 @@ const Calculators = () => {
         </div>
       ) : (
         <div className={styles.empty}>
-          Add some calculators below to get started!
+          Super Calculator
         </div>
       )}
     </div>

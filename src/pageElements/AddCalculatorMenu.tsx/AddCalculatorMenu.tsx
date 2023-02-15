@@ -21,14 +21,12 @@ const AddCalculatorMenu = ({
 }: Props) => {
   return (
     <div className={classNames(styles.wrapper, { [styles.open]: open })}>
-      <div className={styles.control}>
-        <Button
-          onClick={() => onOpenChange?.(!open)}
-          className={styles.controlButton}
-        >
-          {open ? "All Set" : "+ Add Calculator"}
-        </Button>
-      </div>
+      <Button
+        onClick={() => onOpenChange?.(!open)}
+        className={styles.controlButton}
+      >
+        {open ? "All Set" : "+ Add Calculator"}
+      </Button>
       <div className={styles.content}>
         {Object.keys(CALCULATOR_DEFINITIONS).map((c) => (
           <CalculatorSelectButton
